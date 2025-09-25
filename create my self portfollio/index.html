@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>my portfollio </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">Avinash kumar</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <h1>Hi, I'm AVINASH</h1>
+        <h2>Frontend Developer</h2>
+        <p>I create beautiful, functional, and responsive web experiences using modern technologies.</p>
+        <div class="buttons">
+     <a href="#projects" class="btn primary">View My Work</a>
+
+          
+        <a href="my resume.pdf" download class="btn outline">Download Resume</a>
+
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="AVINASHPROFILE.jpg" alt="AVINASH" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="DATA ANAYLST WALMART.PNG" alt="DATA ANALYST WALMART SALES" />
+          <div class="card-body">
+            <h3>DATA ANAYLST SALES WALMART PROJECT</h3>
+            <p>Responsive dashboard with product management and analytics.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="AMAZON2.png" alt="AMAZON CLONE PROJECT" />
+          <div class="card-body">
+            <h3>AMAZON CLONE WITH RESPONSIVE HTML AND CSS</h3>
+            <p>Modern website with destination search and booking functionality.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="FITNESS1.png" alt="Fitness" />
+          <div class="card-body">
+            <h3>Fitness Tracker App</h3>
+            <p>Mobile application for tracking workouts and fitness progress.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">Skills & Technologies</h2>
+      <div class="grid skills-grid">
+        <div class="skill">CSS</div>
+        <div class="skill">JAVASCRIPT</div>
+        <div class="skill">PYTHON</div>
+        <div class="skill">DATA ANAYALST</div>
+        <div class="skill">FRONTED DEVLOPMENT</div>
+        <div class="skill">COMPUTER SKILL</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section muted">
+    <div class="container about-container">
+      <div class="about-img">
+        <img src="develper.png" alt="Developer" />
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>I'm a passionate frontend developer with over 5 years of experience building modern apps.</p>
+        <p>I enjoy solving problems and creating digital experiences with React, TypeScript and Tailwind.</p>
+        <p>When not coding, I hike, read blogs, and try design tools.</p>
+      </div>
+    </div>
+  </section>
+
+
+   <section id="contact" class="section">
+  <div class="container contact-container">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <p><b>Location:</b> Koderma, Jharkhand, 805409, INDIA</p>
+        <p><b>Phone:</b> +91 7004359653</p>
+        <p><b>Email:</b> nishakumarinisha244@gmail.com</p>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="contact-form" id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="subject" placeholder="Subject" />
+        <textarea name="message" placeholder="Message"></textarea>
+        <button type="submit" class="btn primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Google Sheet Integration JS -->
+  <script>
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault(); // page reload roke
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        subject: form.subject.value,
+        message: form.message.value
+      };
+
+      fetch('https://script.google.com/macros/s/AKfycbzlWL1WGMughhiiYU6AIKd8q6dVWwtZXb2J99Z1cyxVRhxTz4LzUr9sy3Se4kwoB8Ow/exec', {  // Yahan apna Google Apps Script Web App URL paste karein
+        method: 'POST',
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert("Message sent!");
+        form.reset(); // form clear ho jaye
+      })
+      .catch(error => alert("Error sending message"));
+    });
+  </script>
+</section>
+
+
+  
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Avinash kumar. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
